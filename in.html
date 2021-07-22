@@ -1,0 +1,120 @@
+<html>
+<head>
+<title> QUIZ Sidarth </title><style>
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background-image: linear-gradient(120deg,#ff6b6b, #5f27cd);
+			min-height: 100vh;
+		}
+		div{
+			width: 500px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background-color: #fff;
+			transform: translate(-50%, -50%);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 1px 1px 20px #ee5253;
+		}
+</style>
+
+<script>
+function startMyQuiz(){
+//check name using regex
+	var regex = /^[a-zA-Z ]{2,30}$/;
+    var name =  document.getElementById('canName').value;
+		if( regex.test(name))
+		{
+		document.getElementById('questions').style.visibility = 'visible';
+		document.getElementById('startQuiz').style.visibility = 'hidden';
+		document.getElementById('canInfo').innerHTML = "Hi "+ name;
+		}
+		else{
+		alert("Enter valid Name");
+		}
+}
+
+function submitMyQuiz()
+{
+var totalScore = 0;
+	if(document.getElementById('radNarendraModi').checked === true)
+	{
+	totalScore = totalScore + 1;
+	}
+	if(document.getElementById('radIndianSuper').checked === true)
+	{
+	totalScore = totalScore + 1;
+	}
+	if(document.getElementById('radViratKohli').checked===true)
+	{
+	totalScore = totalScore + 1;
+	}
+	if(document.getElementById('radJeffBezos').checked===true)
+	{
+	totalScore = totalScore + 1;
+	}
+	if(document.getElementById('radRamnatKovind').checked===true)
+	{
+	totalScore = totalScore + 1;
+	}	
+	document.write("Quiz Ended, Your Score :"+totalScore);
+	document.write(" .   Refresh your browser to start the quiz again");
+}
+</script>
+</head>
+<body>
+<div>
+	<br><br><br>
+	<h1> QUIZ </h1>
+		<form id="candidateDetails">
+		<label for="canName">Candidate Name:</label><br>
+		<input type="text" id="canName" name="canName"><br>
+		<button type="button" id="startQuiz" onclick="startMyQuiz()" > start </button>
+		<br>
+		<p id="canInfo"> </p>
+		</form>
+	<br>
+	<form id="questions" style="visibility:hidden">
+		<label for="q1">Q1: Who is the Current Prime Minister of India:</label><br>
+		<!-- <input type="text" id="q1" name="q1"><br> -->
+		<input type="radio" name="q1" id="radPinarayiVijayan" value="Pinarayi vijayan">Pinarayi vijayan</input><br>
+		<input type="radio" name="q1" id="radAmitShaw" value="Amit shaw"/> Amit shaw </input><br>
+		<input type="radio" name="q1"  id="radNarendraModi" value="Narendra Modi"/> Narendra Modi </input><br>
+		<input type="radio" name="q1" id="radMamata" value="Mamata Bhanarji"/> Mamata Bhanarji </input><br>
+		<br>
+		<label for="q2">Q2: What is the Full Form of ISL</label><br>
+		<!-- <input type="text" id="q2" name="q2"> -->
+		<input type="radio" name="q2" id="radIndianSuper" value="Indian SUper League"/> Indian SUper League</input><br>
+		<input type="radio" name="q2" id="radIndianSoccer"  value="Indian Soccer League"/> Indian Soccer League </input><br>
+		<input type="radio" name="q2"  id="radInternationalSuper" value="International SUper League"/> International SUper League </input><br>
+		<input type="radio" name="q2" id="radInternationalSoccer" value="International Soccer League"/>  International Soccer League</input><br>
+		<br>
+		<label for="q3">Q3: Who is the Captain of Indian cricket team:</label><br>
+		<!-- <input type="text" id="q3" name="q3"><br> -->
+		<input type="radio" name="q3" id="radMSDhoni" value="MS Dhoni">MS Dhoni</input><br>
+		<input type="radio" name="q3" id="radKLRahul" value="KL Rahul"/>KL Rahul</input><br>
+		<input type="radio" name="q3"  id="radViratKohli" value="ViratKohli"/> ViratKohli </input><br>
+		<input type="radio" name="q3" id="radAswin" value="Aswin"/> Aswin </input><br>
+		<br>
+		<label for="q4">Q4: Who is the founder of Amazon? :</label><br>
+		<!-- <input type="text" id="q4" name="q4"><br> -->
+		<input type="radio" name="q4" id="radLarryPage" value="Larry Page">Larry Page</input><br>
+		<input type="radio" name="q4" id="radZuckerburg" value="Zukerburg"/> Zukerburg </input><br>
+		<input type="radio" name="q4"  id="radElonMusk" value="ElonMusk"/> Elon Musk </input><br>
+		<input type="radio" name="q4" id="radJeffBezos" value="JeffBezos"/> JeffBezos </input><br>
+		<br>
+		<label for="q5">Q5: Who is the president of India?:</label><br>
+		<!-- <input type="text" id="q5" name="q5"><br> -->
+		<input type="radio" name="q5" id="radRamnatKovind" value="RamnatKovind">RamnatKovind</input><br>
+		<input type="radio" name="q5" id="radAPJAbdulkalam" value="APJ Abdulkalam"/>APJ Abdulkalam</input><br>
+		<input type="radio" name="q5"  id="radPratibaPatel" value="PratibaPatel"/> PratibaPatel </input><br>
+		<input type="radio" name="q5" id="radHameedAnsari" value="HameedAnsari"/> HameedAnsari </input><br>
+		<br><br>
+		<button type="button" id="submitQuiz" onclick="submitMyQuiz()" > Submit Answers </button>
+	</form>
+	</div>
+</body>
+</html>
